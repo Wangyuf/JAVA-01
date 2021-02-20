@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <beans>
+        <bean id="commodity1" class="com.example.lesson9.bean.Commodity">
+            <property name="id" value="1"/>
+            <property name="price" value="10.00"/>
+            <property name="amount" value="100.00"/>
+        </bean>
+        <bean id="commodity2" class="com.example.lesson9.bean.Commodity" >
+            <property name="price" value="20.00"/>
+        </bean>
+    </beans>
+</beans>
