@@ -12,8 +12,8 @@
   
     4.4 （中级挑战）尝试使用 ByteBuddy 实现一个简单的基于类的 AOP；
   
-    4.5 （超级挑战）尝试使用 ByteBuddy 与 Instrument 实现一个简单 JavaAgent 实现无侵入
-    下的 AOP
+    4.5 （超级挑战）尝试使用 ByteBuddy 与 Instrument 实现一个简单 JavaAgent 实现无侵入下的 AOP
+    
 ### 第十课 Java相关框架（2）
 ##### 1. （选做）总结一下，单例的各种写法，比较它们的优劣。
 ##### 2. （选做）maven/spring 的 profile 机制，都有什么用法？
