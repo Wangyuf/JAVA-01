@@ -32,7 +32,6 @@ create table `geek_order`
     `total_price`   decimal(16, 2) unsigned NOT NULL COMMENT '订单总价',
     `created_time`  datetime                NOT NULL COMMENT '创建时间',
     `modified_time` datetime                NOT NULL COMMENT '最后修改时间',
-    PRIMARY KEY (`id`),
     KEY `customer_id_index` (`customer_id`)
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4 COMMENT ='订单表';
