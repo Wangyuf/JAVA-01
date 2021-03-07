@@ -8,8 +8,7 @@ create table `geek_customer`
     `mobile`        char(11)            NOT NULL COMMENT '手机号',
     `name`          varchar(32)         NOT NULL COMMENT '姓名',
     `created_time`  datetime            NOT NULL COMMENT '创建时间',
-    `modified_time` datetime            NOT NULL COMMENT '最后修改时间',
-    PRIMARY KEY (`id`)
+    `modified_time` datetime            NOT NULL COMMENT '最后修改时间'
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4 COMMENT ='用户表';
 

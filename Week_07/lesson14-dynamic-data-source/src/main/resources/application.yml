@@ -1,0 +1,13 @@
+spring:
+    datasource:
+        master:
+            driver-class-name: com.mysql.cj.jdbc.Driver
+            jdbc-url: jdbc:mysql://192.168.80.3:3306/geek_db?useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=TRUE&serverTimezone=UTC&allowMultiQueries=true
+            username: root
+            password: 123456
+        slave:
+            driver-class-name: com.mysql.cj.jdbc.Driver
+            jdbc-url: jdbc:mysql://192.168.80.3:3306/geek_db_read_0?useSSL=false&useUnicode=true&characterEncoding=utf8&autoReconnect=true&rewriteBatchedStatements=TRUE&serverTimezone=UTC&allowMultiQueries=true
+            username: root
+            password: 123456
+

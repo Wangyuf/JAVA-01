@@ -16,7 +16,7 @@ public class BatchInsert {
     public static void main(String[] args) throws SQLException {
         System.out.println("---start---");
         // 手动拼写sql 分成50次 每次插入20000 耗时9.094秒
-        batchInsertBySqlDemo(20000, 50);
+//        batchInsertBySqlDemo(20000, 50);
         //使用PreparedStatement 分成50次 每次插入20000 本机测试约8.254
         batchInsertByPreparedDemo(20000, 50);
     }
