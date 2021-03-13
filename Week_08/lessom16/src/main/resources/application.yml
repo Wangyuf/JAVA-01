@@ -1,0 +1,26 @@
+spring:
+  shardingsphere:
+    datasource:
+      names: ds0,ds1
+      ds0:
+        type: com.zaxxer.hikari.HikariDataSource
+        jdbc-url: jdbc:mysql://192.168.80.3:3306/ds_0?rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai
+        username: root
+        password: 123456
+      ds1:
+        type: com.zaxxer.hikari.HikariDataSource
+        jdbc-url: jdbc:mysql://192.168.80.3:3306/ds_1?rewriteBatchedStatements=true&serverTimezone=Asia/Shanghai
+        username: root
+        password: 123456
+    sharding:
+      tables:
+        geek_order:
+          actual-data-nodes: ds0.geek_order_$->{0..1}, ds1.geek_order_$->{0..1}
+          database-strategy:
+            inline:
+              sharding-column: shop_id
+              algorithm-expression: ds$->{shop_id%2}
+          table-strategy:
+            inline:
+              sharding-column: customer_id
+              algorithm-expression: geek_order_$->{customer_id%2}
