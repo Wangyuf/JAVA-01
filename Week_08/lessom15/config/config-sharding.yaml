@@ -1,0 +1,55 @@
+schemaName: sharding_db
+
+dataSourceCommon:
+  username: root
+  password: 123456
+  connectionTimeoutMilliseconds: 30000
+  idleTimeoutMilliseconds: 60000
+  maxLifetimeMilliseconds: 1800000
+  maxPoolSize: 50
+  minPoolSize: 1
+  maintenanceIntervalMilliseconds: 30000
+
+dataSources:
+  ds_0:
+    url: jdbc:mysql://192.168.80.3:3306/ds_0?serverTimezone=UTC&useSSL=false
+  ds_1:
+    url: jdbc:mysql://192.168.80.3:3306/ds_1?serverTimezone=UTC&useSSL=false
+# 根据shop_id 拆库 根据customer拆表
+rules:
+- !SHARDING
+  tables:
+    geek_order:
+      actualDataNodes: ds_${0..1}.geek_order_${0..1}
+      tableStrategy:
+        standard:
+          shardingColumn: customer_id
+          shardingAlgorithmName: geek_order_inline
+      keyGenerateStrategy:
+        column: customer_id
+        keyGeneratorName: snowflake
+  bindingTables:
+    - geek_order
+  defaultDatabaseStrategy:
+    standard:
+      shardingColumn: shop_id
+      shardingAlgorithmName: database_inline
+  defaultTableStrategy:
+    none:
+
+  shardingAlgorithms:
+    database_inline:
+      type: INLINE
+      props:
+        algorithm-expression: ds_${shop_id % 2}
+    geek_order_inline:
+      type: INLINE
+      props:
+        algorithm-expression: geek_order_${customer_id % 2}
+
+
+  keyGenerators:
+    snowflake:
+      type: SNOWFLAKE
+      props:
+        worker-id: 123
